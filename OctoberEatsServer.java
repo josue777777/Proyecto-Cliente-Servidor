@@ -5,6 +5,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class OctoberEatsServer {
 
@@ -77,5 +81,24 @@ class ManejoClientes implements Runnable {
                 System.err.println("Error al cerrar el socket del cliente: " + e.getMessage());
             }
         }
+    }
+
+    public class ManejoClientes {
+        public void obtenerClientes() {
+            String query = "SELECT * FROM clientes";
+            try (Connection connection = Database.getConnection();
+                 PreparedStatement pstmt = connection.prepareStatement(query);
+                 ResultSet rs = pstmt.executeQuery()) {
+
+                System.out.println("Lista de clientes:");
+                while (rs.next()) {
+                    System.out.println("Cliente: " + rs.getString("nombre"));
+                }
+            } catch (SQLException e) {
+                System.err.println("Error al obtener clientes:");
+                e.printStackTrace();
+            }
+        }
+
     }
 }

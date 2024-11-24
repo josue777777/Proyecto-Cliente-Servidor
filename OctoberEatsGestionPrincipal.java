@@ -5,5 +5,8 @@ public class OctoberEatsGestionPrincipal {
 
         Cliente cliente = new Cliente("Juan", "Pérez", "12345", "juan.perez@example.com", "Calle Ficticia 123");
         cliente.conectarAlServidor();
+
+        ManejoClientes manejoClientes = new ManejoClientes();
+        manejoClientes.obtenerClientes();
     }
 }
