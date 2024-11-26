@@ -83,22 +83,22 @@ class ManejoClientes implements Runnable {
         }
     }
 
-    public class ManejoClientes {
-        public void obtenerClientes() {
-            String query = "SELECT * FROM clientes";
-            try (Connection connection = Database.getConnection();
-                 PreparedStatement pstmt = connection.prepareStatement(query);
-                 ResultSet rs = pstmt.executeQuery()) {
-
-                System.out.println("Lista de clientes:");
-                while (rs.next()) {
-                    System.out.println("Cliente: " + rs.getString("nombre"));
-                }
-            } catch (SQLException e) {
-                System.err.println("Error al obtener clientes:");
-                e.printStackTrace();
-            }
-        }
-
-    }
+//    public class ManejoClientesBS {
+//        public void obtenerClientes() {
+//            String query = "SELECT * FROM clientes";
+//            try (Connection connection = Database.getConnection();
+//                 PreparedStatement pstmt = connection.prepareStatement(query);
+//                 ResultSet rs = pstmt.executeQuery()) {
+//
+//                System.out.println("Lista de clientes:");
+//                while (rs.next()) {
+//                    System.out.println("Cliente: " + rs.getString("nombre"));
+//                }
+//            } catch (SQLException e) {
+//                System.err.println("Error al obtener clientes:");
+//                e.printStackTrace();
+//            }
+//        }
+//
+//    }
 }
